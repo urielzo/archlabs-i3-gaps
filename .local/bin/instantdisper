@@ -1,0 +1,148 @@
+#!/bin/bash
+
+# menu similar to the super + p menu on windows
+# used to quickly change settings when docking a laptop
+
+mainmenu() {
+    echo '>>h PROJECT
+           Extend
+           PC screen only
+           Second screen only
+               Duplicate
+:g Set default action
+:r Close menu' | instantmenu -l 20 -h -1 -c -w -1 -bw 4 -q search -i
+}
+
+defaultmenu() {
+    echo '>>h Default projection settings
+             Extend
+             PC screen only
+             Second screen only
+                Duplicate
+:b Ask
+:r None
+:b Back' | instantmenu -l 20 -h -1 -c -w -1 -bw 4 -q search -i
+}
+
+restartdunst() {
+    sleep 1
+    if pgrep dunst
+    then
+        echo "restarting dunst"
+        pkill dunst
+        sleep 1
+        dunst & 
+    fi
+}
+
+setdefault() {
+    DEFAULTLOOPING="true"
+    while [ -n "$DEFAULTLOOPING" ]; do
+        DEFAULTCHOICE="$(defaultmenu)"
+
+        if [ -z "$DEFAULTCHOICE" ]; then
+            continue
+        else
+            unset DEFAULTLOOPING
+        fi
+
+        case "$DEFAULTCHOICE" in
+        "*Second screen only")
+            iconf automon S
+            ;;
+        *Extend)
+            iconf automon e
+            ;;
+        "*PC screen only")
+            iconf automon s
+            ;;
+        *Duplicate)
+            iconf automon c
+            ;;
+        *None)
+            iconf automon n
+            ;;
+        *Ask)
+            iconf -d automon
+            ;;
+        *) # Back
+            instantdisper &
+            exit
+            ;;
+        esac
+    done
+}
+
+# apply saved setting
+applydefault() {
+    if ! iconf automon; then
+        echo "no default monitor setting"
+    fi
+
+    AUTOMON="$(iconf automon)"
+    if grep '^[esSc]$' <<<"$AUTOMON"; then
+        disper -"$AUTOMON"
+        restartdunst &
+    else
+        echo "none"
+    fi
+}
+
+if [ -n "$1" ]; then
+    case "$1" in
+    apply)
+        if iconf automon; then
+            applydefault
+            exit
+        fi
+        ;;
+    setdefault)
+        setdefault
+        applydefault
+        exit
+        ;;
+    settings)
+        echo "starting instantdisper"
+        ;;
+    esac
+fi
+
+LOOPING="true"
+while [ -n "$LOOPING" ]; do
+    CHOICE="$(mainmenu)"
+    unset LOOPING
+    case "$CHOICE" in
+    *Extend)
+        echo "extend"
+        disper -e
+        restartdunst &
+        ;;
+    *only)
+        if grep -q 'PC' <<<"$CHOICE"; then
+            echo "setting display to primary monitor"
+            disper -s
+        else
+            echo "setting display to secondary monitor"
+            disper -S
+        fi
+        restartdunst &
+        ;;
+    *Duplicate)
+        echo "duplicating monitors"
+        disper -c
+        restartdunst &
+        ;;
+    *action)
+        echo "setting default action"
+        setdefault
+        applydefault
+        ;;
+    *menu|'')
+        exit
+        ;;
+    *)
+        echo "choice $CHOICE"
+        LOOPING="true"
+        ;;
+    esac
+done

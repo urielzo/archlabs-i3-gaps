@@ -1,0 +1,73 @@
+--[[
+	Created by Brad Heffernan for Hefftor Edition
+]]
+
+conky.config = {
+	background = true,
+	update_interval = 1,
+
+	cpu_avg_samples = 2,
+	net_avg_samples = 2,
+	temperature_unit = celsius,
+
+	double_buffer = true,
+	no_buffers = true,
+	text_buffer_size = 2048,
+
+	gap_x = 0,
+	gap_y = -180,
+
+	minimum_width = 680,
+
+	own_window = true,
+    own_window_class = 'Conky',
+    own_window_type = 'override',
+    own_window_argb_visual = true,
+    own_window_argb_value = 0,
+    own_window_hints = 'undecorated,sticky,below,skip_taskbar,skip_pager',
+	border_inner_margin = 0,
+	border_outer_margin = 0,
+	alignment = 'middle_middle',
+
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+	draw_graph_borders = false,
+	default_bar_width = 280,
+	default_bar_height = 3,
+	default_outline_color = 'FFFFFF',
+
+	override_utf8_locale = true,
+	use_xft = true,
+	font = 'Fivo Sans Thin:size=8',
+	xftalpha = 0.8,
+	uppercase = false,
+
+	default_color = 'FFFFFF',
+	color1 = 'FFFFFF',
+	color2 = 'dda9bf',
+	color3 = '401343',
+	color4 = 'fae4df',
+	color5 = 'e6d5ec',
+
+	lua_load = '~/.lua/day.lua',
+	lua_draw_hook_pre = 'conky_day'
+
+}
+
+conky.text = [[
+${if_match "${execi 5 ~/.lua/running}"=="true"}\
+	${if_match "${execi 5 ~/.lua/albumart}"=="NOCOVER"}\
+		${image ~/.lua/NoCover.png -p 160,250 -s 65x65}\
+	${else}\
+		${image /tmp/cover2.png -p 160,250 -s 65x65}\
+	${endif}\
+${else}\
+	${image ~/.lua/NoCover.png -p 160,250 -s 65x65}\
+${endif}
+${voffset 250}${goto 240}${font Fivo Sans Heavy:size=14:bold}${texeci 5 sh ~/.lua/mpc_artist}
+${goto 240}${font Fivo Sans Heavy:size=10:bold}${texeci 5 sh ~/.lua/mpc_title}
+${voffset 10}${color2}${goto 225}${execbar ~/.lua/mpc_progress bar}
+${color1}${voffset -4}${goto 470}${texeci 1 sh ~/.lua/mpc_progress length}
+
+]];

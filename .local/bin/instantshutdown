@@ -1,0 +1,88 @@
+#!/bin/bash
+
+###################################################
+## shut down pc and break instantwm restart loop ##
+###################################################
+
+# multiple instances would overlap
+if [ "$(pgrep instantshutdown | wc -l)" -gt 2 ]; then
+    pgrep instantshutdown | wc -l
+    echo "instantshutdown already running"
+    exit
+fi
+
+if [ -n "$1" ]; then
+    answer="$1"
+else
+    answer="$(echo ' ﰸ  cancel
+ 襤  shutdown
+   logout
+ ﮦ   reboot
+   lock screen
+ ⏼   suspend
+ 勒  restart wm' | instantmenu -l 10 -w -1 -c -n -F -p ' ' -q 'select')"
+fi
+
+# if there are apps open, ask for confirmation
+zconfirm() {
+    if wmctrl -l | grep -q '..'; then
+        echo "running applications found"
+        if imenu -c "there are apps running, sure you want to $1?"; then
+            echo "yes"
+            return 0
+        else
+            echo "no"
+            exit
+        fi
+    else
+        echo "no running applications found"
+    fi
+}
+
+prepareshutdown() {
+    # save current brightness
+    touch /tmp/shuttingdown
+    if CURBRIGHT="$(/usr/share/instantassist/utils/b.sh g)"; then
+        iconf savebright "$CURBRIGHT"
+    fi
+
+    rm "$(instantruntimedir)"/instantosrunning
+    # these keep causing stop jobs
+    pkill -f clipnotify
+    pkill -f clipmenud
+}
+
+case "$answer" in
+shut*)
+    zconfirm "shutdown"
+    prepareshutdown
+    sleep 0.4
+    shutdown now
+    ;;
+reb*)
+    zconfirm "reboot"
+    prepareshutdown
+    sleep 0.4
+    reboot
+    ;;
+log*)
+    zconfirm "sign out"
+    rm "$(instantruntimedir)"/instantosrunning
+    sleep 0.4
+    
+    kill -9 -1
+    ;;
+loc*)
+    betterlockscreen -l dim
+    ;;
+sus*)
+    systemctl suspend
+    instantlock
+    ;;
+res*)
+    pkill i3wm
+    ;;
+*)
+    echo "canceled"
+    ;;
+esac

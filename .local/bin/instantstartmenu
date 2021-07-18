@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# basic menu activated from the top left
+
+CHOICE="$(echo ':b Applications
+:b Settings
+:b Info
+:b Music
+:g 嗀Colorchange
+:b 﫺Lockscreen-gui
+:r Shutdown
+:r Close menu' | instantmenu -i -bw 4 -w -1 -h -1 -n -l 10 -x 0 -y 22 -F -a 0)"
+
+[ -z "$CHOICE" ] && exit
+
+echo "$CHOICE"
+case "$CHOICE" in
+*Applications)
+    sleep 0.05
+    appmenu &
+    ;;
+*Settings)
+    instantsettings &
+    ;;
+*Info)
+    kitty sh -c 'neofetch && echo -ne && sleep 60m' &
+#   kitty -g 50x12 -e sh -c 'neofetch && echo -ne && sleep 60m' &
+    ;;
+*Shutdown)
+    hefflogout &
+    ;;
+*Lockscreen-gui)
+    hefftor-betterlockscreen-gui &
+    ;;
+*Colorchange)
+    walp &
+    ;;
+*Music)
+    kitty -e ncmpcpp -c ~/.ncmpcpp/config
+    ;;
+*menu)
+    echo "closed menu"
+    ;;
+*)
+    echo "other choice"
+    instantmenu_smartrun "startmenu" "$CHOICE"
+    ;;
+esac
+
+exit

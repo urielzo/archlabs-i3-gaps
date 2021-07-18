@@ -1,0 +1,34 @@
+sw_volume: 98
+audio_device_state:1:Pulseaudio
+state: stop
+current: 5
+random: 1
+repeat: 0
+single: 1
+consume: 0
+crossfade: 0
+mixrampdb: 0.000000
+mixrampdelay: -1.000000
+playlist_begin
+0:asus/asus-rog-strix-helios.mp3
+1:asus/lian-li-dynamic-mini-time-lapse.mp3
+2:zoe/leon-larregui-locos-video-oficial.mp3
+3:asus/asus-rog-strix-helios.mp3
+4:asus/time-lapse-build-dps-thermaltake-level.mp3
+5:asus/lian-li-dynamic-mini-time-lapse.mp3
+6:zoe/leon-larregui-brillas-video-oficial.mp3
+7:zoe/leon-larregui-locos-video-oficial.mp3
+8:asus/the-bloodie-rog-7200-eur-time-lapse.mp3
+9:pxndx/panda Matando memorias letra ( 160kbps ).mp3
+10:rastacuando/Rastacuando - Este Tema Amaste ( 160kbps ).mp3
+11:pxndx/Panda - Mi muñeca ( 160kbps ).mp3
+12:pxndx/Panda - Para ti con desprecio (Full Album) ( 160kbps ).mp3
+13:pxndx/PXNDX - Solo a Terceros _VIDEO OFICIAL_ ( 160kbps ).mp3
+14:pxndx/PXNDX - Procedimientos para llegar a un comun acuerdo ( 160kbps ).mp3
+15:pxndx/PXNDX - Cita en el quirofano ( 160kbps ).mp3
+16:pxndx/PXNDX - Los Malaventurados No Lloran - Letra ( 160kbps ).mp3
+17:pxndx/PXNDX - Disculpa los Malos Pensamientos ( 160kbps ).mp3
+18:pxndx/PXNDX - Narcisista por Excelencia ( 160kbps ).mp3
+19:rastacuando/Rastacuando - El Seis (Video Oficial) ( 160kbps ).mp3
+20:pxndx/PXNDX - Cuando no es como debiera ser ( 160kbps ).mp3
+playlist_end

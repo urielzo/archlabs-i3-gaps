@@ -1,0 +1,213 @@
+
+
+* {
+
+	/* COLORS */
+
+  /* BLACK */
+  BLACK: @background;
+  LBLACK: @background;
+
+  /* RED */
+  RED: @background;
+  LRED: @background;
+
+  /* WHITE */
+  WHITE: @foreground;
+  LWHITE: @background;
+
+  /* GOLD */
+  GOLD: @background;
+  LGOLD: @background;
+
+  /* GREY */
+  GREY: @background;
+  LGREY: @background;
+  TRANSPARENT: @background;
+	background: @background;
+
+	/* HIGHLIGHT */
+	HIGHLIGHT: @background;
+	DHIGHLIGHT: @background;
+
+
+	background: @background;
+	background-color: @background;
+	foreground: @foreground;
+	selected: @background;
+	selected-foreground: @foreground;
+
+	/* TEXT */
+	font: "FiraCode Nerd Font 10";
+  text-color: @foreground;
+
+	/* PADDING */
+	margin:	-2px;
+	border:	0px;
+	padding: 0px;
+	spacing: 0px;
+	elementpadding: 10px 10px;
+	elementmargin: 0px 2px;
+	listmargin:	0px 2px 0px 0px;
+
+	/* ////	SIZE	//// */
+	windowwidth:	20%;
+	buttonwidth:	2ch;
+	lines:			12;
+	fixed-height:	true;
+	windowheight: 94.8%;
+
+	/* ////	POSITION	//// */
+	location:		west;
+	anchor:			west;
+	x-offset:		3px;
+	y-offset:		15px;
+
+	/* ////	LAYOUT	//// */
+	scrollbar:		false;
+	buttonpadding:	0px 0ch;
+	button-bg:		@background;
+	dynamic:		false;
+	menustyle: [sb-mainbox];
+	background-color: @background;
+	font: "FiraCode Nerd Font 10";
+}
+@import "~/.cache/wal/colors-rofi-dark"
+
+window {
+    background-color: @background;
+	children: @menustyle;
+	width: @windowwidth;
+	height: @windowheight;
+	/* border-radius: 0px 0px 0px 0px; */
+}
+/* submenu-style */
+sb-mainbox {
+	orientation:	horizontal;
+	children:		[ mode-switcher, vertibox ];
+	margin: 0px 0px 0px 0px;
+}
+
+horibox {
+	orientation:	horizontal;
+	children:		[ listview, mode-switcher ];
+}
+
+mode-switcher {
+	orientation:	vertical;
+	height: @windowheight;
+	background-color: @foreground;
+}
+
+button {
+	horizontal-align:	0;
+	padding:		0px 0px;
+	width:			30px;
+	background-color:	@background;
+	text-color:         @foreground;
+	expand:			true;
+}
+
+vertibox {
+	orientation:	vertical;
+	children:		[ inputbar, listview ];
+	background-color:	@background;
+	margin:			0px 0px 0px 0px;
+}
+
+prompt {
+	enabled:		false;
+	/* border-radius: 10px; */
+	margin: 0px 0px 0px 0px;
+}
+
+inputbar {
+	padding:        0px 0px;
+	margin:			0px 0px 0px 0px;
+	width: @elementwidth;
+	
+}
+
+case-indicator {
+	background-color: @background;
+	margin:			0px 0px 0px 0px;
+}
+
+entry {
+	background-color: @foreground;
+	text-color: @background;
+	placeholder-color: @background;
+	placeholder:  " Search applications";
+	expand: true;
+	padding: 5px 0px 5px 0px;
+	horizontal-align: 0.1;
+	/* vertical-align: -0.02; */
+	margin: 0px 0px 0px 0px;
+	border-radius: 4px;
+	
+	font: "FiraCode Nerd Font 10";
+}
+
+listview {
+    fixed-height: 0;
+    border: 0px 0px 0px;
+    border-color: @border-color;
+    spacing: 0px;
+    scrollbar: true;
+    padding: 0px 0px 0px 12px;
+}
+
+
+boxdummy {
+	enabled:		false;
+	orientation:	vertical;
+	expand:			false;
+	children:		[ textboxdummy ];
+	background-color:	@background;
+
+}
+
+textbox-prompt-colon {
+    expand:                        false;
+    str:                           "";
+    margin:                        0px 0.3em 0em 0em;
+    text-color:                    @normal-foreground;
+}
+
+textboxdummy {
+	str:			"	";
+}
+
+
+element, inputbar, textboxdummy {
+	padding:		@elementpadding;
+	margin:			@elementmargin;
+	width:			@elementwidth;
+	background-color:	@background;
+	font: "Roboto 20";
+}
+element.normal.active,
+element.alternate.active {
+	background-color:	@background;
+	text-color:			@selected-foreground;
+}
+element.selected,
+button.selected {
+	background-color:	@background;
+	text-color:			@foreground;
+	/* border-radius: 0px 0px 0px 0px; */
+}
+element.selected.normal {
+    background-color: @foreground;
+    text-color: @background;
+    border-radius: 4px 4px 4px 4px;
+}
+element.normal.urgent,
+element.alternate.urgent {
+	background-color:	@urgent-background;
+	text-color:			@urgent-foreground;
+}
+element.selected.urgent {
+	background-color:	@selected-urgent-background;
+	text-color:			@selected-urgent-foreground;
+}

@@ -1,0 +1,220 @@
+*Style-1) change_style   ;; 
+				
+				*Style-2) change_style    ;;
+				
+				*Style-3) change_style   ;;
+				
+				*Style-4) change_style ;;
+				
+				*Style-5) change_style   ;;
+				
+				*Style-6) change_style     ;;
+				
+				*Style-7) change_style   ;;
+				
+				*Style-8) change_style   ;;
+				
+				*Style-9) change_style   ;;
+				
+				*Style-10) change_style   ;;
+				
+				*Style-11) change_style   ;;
+				
+				*Style-12) change_style   ;;
+				
+				*Style-13) change_style       ;;
+
+
+# Blue
+
+shade0 = "#0D47A1"
+shade1 = "#1565C0"
+shade2 = "#1976D2"
+shade3 = "#1E88E5"
+shade4 = "#2196F3"
+shade5 = "#42A5F5"
+shade6 = "#64B5F6"
+shade7 = "#90CAF9"
+shade8 = "#242424"
+
+# amber
+
+shade0="#FF6F00"
+shade1="#FF8F00"	
+shade2="#FFA000"	
+shade3="#FFB300"
+shade4="#FFC107"	
+shade5="#FFCA28"	
+shade6="#FFD54F"	
+shade7="#FFE082"
+
+
+# blue-gray
+shade0="#263238"	
+shade1="#37474F"	
+shade2="#455A64"	
+shade3="#546E7A"
+shade4="#607D8B"	
+shade5="#78909C"	
+shade6="#90A4AE"	
+shade7="#B0BEC5"
+	
+# brown
+shade0="#3E2723"	
+shade1="#4E342E"	
+shade2="#5D4037"	
+shade3="#6D4C41"
+shade4="#795548"	
+shade5="#8D6E63"	
+shade6="#A1887F"	
+shade7="#BCAAA4"
+	
+# cyan
+shade0="#006064"	
+shade1="#00838F"	
+shade2="#0097A7"	
+shade3="#00ACC1"
+shade4="#00BCD4"	
+shade5="#26C6DA"	
+shade6="#4DD0E1"	
+shade7="#80DEEA"
+	
+# deep-orange
+shade0="#BF360C"	
+shade1="#D84315"	
+shade2="#E64A19"	
+shade3="#F4511E"
+shade4="#FF5722"	
+shade5="#FF7043"	
+shade6="#FF8A65"	
+shade7="#FFAB91"
+	
+# deep-purple
+shade0="#311B92"	
+shade1="#4527A0"	
+shade2="#512DA8"	
+shade3="#5E35B1"
+shade4="#673AB7"	
+shade5="#7E57C2"	
+shade6="#9575CD"	
+shade7="#B39DDB"
+	
+# green
+shade0="#1B5E20"	
+shade1="#2E7D32"	
+shade2="#388E3C"	
+shade3="#43A047"
+shade4="#4CAF50"	
+shade5="#66BB6A"	
+shade6="#81C784"	
+shade7="#A5D6A7"
+	
+# gray
+shade0="#212121"	
+shade1="#424242"	
+shade2="#616161"	
+shade3="#757575"
+shade4="#9E9E9E"	
+shade5="#BDBDBD"	
+shade6="#D4D4D4"	
+shade7="#EEEEEE"
+	
+# --indigo
+shade0="#1A237E"	
+shade1="#283593"	
+shade2="#303F9F"	
+shade3="#3949AB"
+shade4="#3F51B5"	
+shade5="#5C6BC0"	
+shade6="#7986CB"	
+shade7="#9FA8DA"
+	
+# light-blue
+shade0="#01579B"	
+shade1="#0277BD"	
+shade2="#0288D1"	
+shade3="#039BE5"
+shade4="#03A9F4"	
+shade5="#29B6F6"	
+shade6="#4FC3F7"	
+shade7="#81D4FA"
+
+# light-green
+shade0="#33691E"	
+shade1="#558B2F"	
+shade2="#689F38"	
+shade3="#7CB342"
+shade4="#8BC34A"	
+shade5="#9CCC65"	
+shade6="#AED581"	
+shade7="#C5E1A5"
+	
+# --lime
+shade0="#827717"	
+shade1="#9E9D24"	
+shade2="#AFB42B"	
+shade3="#C0CA33"
+shade4="#CDDC39"	
+shade5="#D4E157"	
+shade6="#DCE775"	
+shade7="#E6EE9C"
+	
+# orange
+shade0="#E65100"	
+shade1="#EF6C00"	
+shade2="#F57C00"	
+shade3="#FB8C00"
+shade4="#FF9800"	
+shade5="#FFA726"	
+shade6="#FFB74D"	
+shade7="#FFCC80"
+	
+# pink
+shade0="#880E4F"	
+shade1="#AD1457"	
+shade2="#C2185B"	
+shade3="#D81B60"
+shade4="#E91E63"	
+shade5="#EC407A"	
+shade6="#F06292"	
+shade7="#F48FB1"
+	
+# purple
+shade0="#4A148C"	
+shade1="#6A1B9A"	
+shade2="#7B1FA2"	
+shade3="#8E24AA"
+shade4="#9C27B0"	
+shade5="#AB47BC"	
+shade6="#BA68C8"	
+shade7="#CE93D8"
+
+# red
+shade0="#B71C1C"	
+shade1="#C62828"	
+shade2="#D32F2F"	
+shade3="#E53935"
+shade4="#EE413D"	
+shade5="#EF5350"	
+shade6="#E57373"	
+shade7="#EF9A9A"
+	
+# teal
+shade0="#004D40"	
+shade1="#00695C"	
+shade2="#00796B"	
+shade3="#00897B"
+shade4="#009688"	
+shade5="#26A69A"	
+shade6="#4DB6AC"	
+shade7="#80CBC4"
+	
+# yellow
+shade0="#F57F17"	
+shade1="#F9A825"	
+shade2="#FBC02D"	
+shade3="#FDD835"
+shade4="#FFEB3B"	
+shade5="#FFEE58"	
+shade6="#FFF176"	
+shade7="#FFF59D"
