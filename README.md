@@ -18,7 +18,7 @@
 ![instantdmenu_run](/preview/instantdmenu_run.png)
 <br />
 ## instant-settings
-![instant-settings]()/preview/instant-settings.png)
+![instant-settings]()/preview/instantsettings.png)
 <br />
 ## instantshutdown
 ![instantshutdown](/preview/instantshutdown.png)
